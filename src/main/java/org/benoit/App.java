@@ -1,19 +1,17 @@
 package org.benoit;
 
-public class App
-{
-    public static void main( String[] args )
-    {
-        var l = new Tree.Leaf();
-        var nd = new Tree.Branch("d", l, l);
-        var nb = new Tree.Branch("b", nd, l);
-        var ne = new Tree.Branch("e", l, l);
-        var nc = new Tree.Branch("c", l, ne);
-        var na = new Tree.Branch("a", nb, nc);
+public class App {
+    static final Tree.Leaf l = new Tree.Leaf();
+    static final Tree.Branch tb = new Tree.Branch("a",
+            new Tree.Branch("b", l, l),
+            new Tree.Branch("c",
+                    new Tree.Branch("d", l, l),
+                    new Tree.Branch("e", l, l)));
 
-        System.out.println(na);
+    public static void main(String[] args) {
+        System.out.println(tb);
         Tree t = new Tree();
-        System.out.println(t.addId(na));
+        System.out.println(t.addId(tb));
 
     }
 }

@@ -15,10 +15,10 @@ public class Tree<T> {
 
     // Move declaration of Leaf/Branch here
 
-    INode<AbstractMap.SimpleEntry<Integer,T>> addId(INode<T> node) {
+    public INode<AbstractMap.SimpleEntry<Integer,T>> addId(INode<T> node) {
         return addId(node,0).getValue();
     }
-
+    
     AbstractMap.SimpleEntry<Integer,INode<AbstractMap.SimpleEntry<Integer,T>>>
         addId(INode<T> node, Integer start) {
         INode<AbstractMap.SimpleEntry<Integer,T>> l = new Leaf<AbstractMap.SimpleEntry<Integer,T>>();
