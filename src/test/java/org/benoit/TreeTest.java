@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.AbstractMap;
 
 
-public class AppTest {
+public class TreeTest {
 
     // Could be added to 'Tree' to simplify the code and made public to
     // have it accessible from unit tests. As it doesn't have side effects,

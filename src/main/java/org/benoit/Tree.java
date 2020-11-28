@@ -4,7 +4,7 @@ import java.util.AbstractMap;
 
 // Java 15
 public class Tree<T> {
-    // The class should be made a singleton  but doesn't seem to work with the type parameters
+    // The class should be made a singleton but doesn't seem to work with the type parameters
     public interface INode<T> {
     }
     public record Branch<T>(T value, INode<T> left, INode<T> right) implements INode<T> {
@@ -25,8 +25,8 @@ public class Tree<T> {
         var r = new AbstractMap.SimpleEntry<>(start, l);
         // Waiting for switch on types (https://openjdk.java.net/jeps/8213076)
         if(node instanceof Branch<T> b) {
-            AbstractMap.SimpleEntry<Integer,INode<AbstractMap.SimpleEntry<Integer,T>>> newLeft = addId(b.left(), start);
-            AbstractMap.SimpleEntry<Integer,INode<AbstractMap.SimpleEntry<Integer,T>>> newRight = addId(b.right(), newLeft.getKey());
+            var newLeft = addId(b.left(), start);
+            var newRight = addId(b.right(), newLeft.getKey());
             var newBranch = new Branch<AbstractMap.SimpleEntry<Integer,T>>(
                     new AbstractMap.SimpleEntry<Integer,T>(newRight.getKey(), b.value()),
                     newLeft.getValue(),
