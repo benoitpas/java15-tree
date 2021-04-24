@@ -24,7 +24,8 @@ public class Tree<T> {
         INode<AbstractMap.SimpleEntry<Integer,T>> l = new Leaf<AbstractMap.SimpleEntry<Integer,T>>();
         var r = new AbstractMap.SimpleEntry<>(start, l);
         // Waiting for switch on types (https://openjdk.java.net/jeps/8213076)
-        if(node instanceof Branch<T> b) {
+        // but still nice to use JEP 394 (pattern matching for instanceof)
+        if (node instanceof Branch<T> b) {
             var newLeft = addId(b.left(), start);
             var newRight = addId(b.right(), newLeft.getKey());
             var newBranch = new Branch<AbstractMap.SimpleEntry<Integer,T>>(
